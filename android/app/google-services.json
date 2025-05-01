@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "257635222805",
+    "project_id": "carrot-market-76a3c",
+    "storage_bucket": "carrot-market-76a3c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257635222805:android:35648fabed318f36e9151c",
+        "android_client_info": {
+          "package_name": "com.example.carrot_market"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf4cozlN9pwx7bOmECJhQwIysX038NXi4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
