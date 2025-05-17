@@ -1,5 +1,6 @@
+import 'package:carrot_market/src/common/components/app_font.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
 class InitStartPage extends StatelessWidget {
   const InitStartPage({super.key});
@@ -17,25 +18,43 @@ class InitStartPage extends StatelessWidget {
               child: Image.asset('assets/images/logo_simbol.png'),
             ),
             const SizedBox(height: 40),
-            Text(
-              '당신 근처의 밤톨마켓',
-              style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
+            AppFont('당신 근처의 밤톨마켓', fontWeight: FontWeight.bold, size: 20),
+
             const SizedBox(height: 15),
-            Text(
+            AppFont(
               '중고 거래부터 동네 정보까지, \n지금 내 동네를 선택하고 시작해보세요!',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.white.withValues(alpha: 0.6),
-              ),
+              align: TextAlign.center,
+              size: 18,
+              color: Colors.white.withValues(alpha: 0.6),
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(
+          left: 25,
+          right: 25,
+          bottom:
+              25 +
+              Get
+                  .mediaQuery
+                  .padding
+                  .bottom, //iOS 하단에서는 위로 올리려면 나타나는 제어센터 영역 때문에 더 큰 간격 추가
+        ),
+        child: GestureDetector(
+          onTap: () {},
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(7),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              child: AppFont(
+                "시작하기",
+                align: TextAlign.center,
+                size: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ),
     );
