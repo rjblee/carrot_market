@@ -47,6 +47,7 @@ class InitStartPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(7),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 15),
+              color: const Color(0XffED7738),
               child: AppFont(
                 "시작하기",
                 align: TextAlign.center,
