@@ -2,6 +2,8 @@ import 'package:carrot_market/src/common/components/app_font.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/components/btn.dart';
+
 class InitStartPage extends StatelessWidget {
   const InitStartPage({super.key});
 
@@ -41,22 +43,7 @@ class InitStartPage extends StatelessWidget {
                   .padding
                   .bottom, //iOS 하단에서는 위로 올리려면 나타나는 제어센터 영역 때문에 더 큰 간격 추가
         ),
-        child: GestureDetector(
-          onTap: () {},
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(7),
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              color: const Color(0XffED7738),
-              child: AppFont(
-                "시작하기",
-                align: TextAlign.center,
-                size: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
+        child: const Btn(),
       ),
     );
   }
