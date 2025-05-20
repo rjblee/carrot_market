@@ -43,7 +43,15 @@ class InitStartPage extends StatelessWidget {
                   .padding
                   .bottom, //iOS 하단에서는 위로 올리려면 나타나는 제어센터 영역 때문에 더 큰 간격 추가
         ),
-        child: const Btn(),
+        child: Btn(
+          child: const AppFont(
+            "시작하기",
+            align: TextAlign.center,
+            size: 18,
+            fontWeight: FontWeight.bold,
+          ),
+          onTap: () {},
+        ),
       ),
     );
   }
