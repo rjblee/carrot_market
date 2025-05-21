@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import '../../common/components/btn.dart';
 
 class InitStartPage extends StatelessWidget {
-  const InitStartPage({super.key});
+  final Function() onStart;
+
+  const InitStartPage({super.key, required this.onStart});
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +46,13 @@ class InitStartPage extends StatelessWidget {
                   .bottom, //iOS 하단에서는 위로 올리려면 나타나는 제어센터 영역 때문에 더 큰 간격 추가
         ),
         child: Btn(
+          onTap: onStart,
           child: const AppFont(
             "시작하기",
             align: TextAlign.center,
             size: 18,
             fontWeight: FontWeight.bold,
           ),
-          onTap: () {},
         ),
       ),
     );
