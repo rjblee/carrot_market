@@ -22,6 +22,18 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return isInitStarted ? const InitStartPage() : const SplashPage();
+    return isInitStarted
+        ? InitStartPage(
+          onStart: () {
+            setState(() {
+              isInitStarted = false;
+            });
+            prefs.setBool(
+              'isInitStarted',
+              isInitStarted,
+            ); //prefs 를 통해 데이터를 저장하고 앱을 재실행해도 값이 유지되도록 합니다
+          },
+        )
+        : const SplashPage();
   }
 }
