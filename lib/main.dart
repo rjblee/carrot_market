@@ -1,4 +1,5 @@
 import 'package:carrot_market/firebase_options.dart';
+import 'package:carrot_market/src/splash/controller/splash_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: '당근마켓 클론',
       initialRoute: '/',
-      getPages: [GetPage(name: '/', page: () => const App())],
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           elevation: 0,
@@ -32,6 +32,10 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color(0xff212123),
       ),
+      initialBinding: BindingsBuilder(() {
+        Get.put(SplashController());
+      }),
+      getPages: [GetPage(name: '/', page: () => const App())],
     );
   }
 }
