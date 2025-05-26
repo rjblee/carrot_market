@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends GetView<SplashController> {
+  // GetView를 사용하면 위젯 내에서 controller에 바로 접근 가능
   const SplashPage({super.key});
 
   @override
