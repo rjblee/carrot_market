@@ -11,7 +11,10 @@ class SplashPage extends GetView<SplashController> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => Text('Splash 페이지', style: TextStyle(color: Colors.white)),
+          () => Text(
+            '${controller.loadStep.value.name}',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );
