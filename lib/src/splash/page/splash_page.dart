@@ -13,8 +13,11 @@ class SplashPage extends GetView<SplashController> {
     return Scaffold(
       body: Center(
         child: GetxListener<StepType>(
+          // 어떤 타입을 listen 할지 제네릭 타입으로 정의
           initCall: () {
-            controller.loadStep(StepType.dataLoad);
+            controller.loadStep(
+              StepType.dataLoad,
+            ); // 초기 상태를 업데이트. 여기서는 초기 StepType을 dataLoad로 전달
           },
           stream: controller.loadStep, // loadStep 값이 바뀔때마다 listen이 호출됨
           listen: (StepType? value) {
