@@ -17,9 +17,21 @@ class SplashPage extends GetView<SplashController> {
             controller.loadStep(StepType.dataLoad);
           },
           stream: controller.loadStep,
+          listen: (StepType? value) {
+            if (value == null) return;
+            switch (value) {
+              case StepType.init:
+              case StepType.dataLoad:
+                print('dataLoad');
+                break;
+              case StepType.authCheck:
+                print('authCheck');
+                break;
+            }
+          },
           child: Obx(
             () => Text(
-              '${controller.loadStep.value.name}',
+              controller.loadStep.value.name,
               style: TextStyle(color: Colors.white),
             ),
           ),
