@@ -16,7 +16,7 @@ class SplashPage extends GetView<SplashController> {
           initCall: () {
             controller.loadStep(StepType.dataLoad);
           },
-          stream: controller.loadStep,
+          stream: controller.loadStep, // loadStep 값이 바뀔때마다 listen이 호출됨
           listen: (StepType? value) {
             if (value == null) return;
             switch (value) {
