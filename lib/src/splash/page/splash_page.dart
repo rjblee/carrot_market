@@ -1,4 +1,5 @@
 import 'package:carrot_market/src/common/components/getx_listener.dart';
+import 'package:carrot_market/src/common/controller/data_load_controller.dart';
 import 'package:carrot_market/src/splash/controller/splash_controller.dart';
 import 'package:carrot_market/src/splash/enum/step_type.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class SplashPage extends GetView<SplashController> {
             switch (value) {
               case StepType.init:
               case StepType.dataLoad:
-                print('dataLoad');
+                Get.find<DataLoadController>().loadData(); // 데이터 로드를 진행
                 break;
               case StepType.authCheck:
                 print('authCheck');
@@ -34,7 +35,7 @@ class SplashPage extends GetView<SplashController> {
           },
           child: Obx(
             () => Text(
-              controller.loadStep.value.name,
+              '${controller.loadStep.value.name}중 입니다.',
               style: TextStyle(color: Colors.white),
             ),
           ),
