@@ -13,30 +13,38 @@ class SplashPage extends GetView<SplashController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: GetxListener<StepType>(
-          // 어떤 타입을 listen 할지 제네릭 타입으로 정의
-          initCall: () {
-            controller.loadStep(
-              StepType.dataLoad,
-            ); // 초기 상태를 업데이트. 여기서는 초기 StepType을 dataLoad로 전달
-          },
-          stream: controller.loadStep, // loadStep 값이 바뀔때마다 listen이 호출됨
-          listen: (StepType? value) {
-            if (value == null) return;
-            switch (value) {
-              case StepType.init:
-              case StepType.dataLoad:
-                Get.find<DataLoadController>().loadData(); // 데이터 로드를 진행
-                break;
-              case StepType.authCheck:
-                print('authCheck');
-                break;
+        child: GetxListener<bool>(
+          listen: (bool value) {
+            if (value) {
+              // true 값이 넘어왔다는 것은 데이터 로드가 완료되었다는 뜻. 그래서 다음 단계인 authCheck 으로 업데이트
+              controller.loadStep(StepType.authCheck);
             }
           },
-          child: Obx(
-            () => Text(
-              '${controller.loadStep.value.name}중 입니다.',
-              style: TextStyle(color: Colors.white),
+          stream: Get.find<DataLoadController>().isDataLoad,
+          child: GetxListener<StepType>(
+            initCall: () {
+              controller.loadStep(
+                StepType.dataLoad,
+              ); // 초기 상태를 업데이트. 여기서는 초기 StepType을 dataLoad로 전달
+            },
+            stream: controller.loadStep, // loadStep 값이 바뀔때마다 listen이 호출됨
+            listen: (StepType? value) {
+              if (value == null) return;
+              switch (value) {
+                case StepType.init:
+                case StepType.dataLoad:
+                  Get.find<DataLoadController>().loadData(); // 데이터 로드를 진행
+                  break;
+                case StepType.authCheck:
+                  print('authCheck');
+                  break;
+              }
+            },
+            child: Obx(
+              () => Text(
+                '${controller.loadStep.value.name}중 입니다.',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ),
