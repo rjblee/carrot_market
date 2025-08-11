@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'src/app.dart';
+import 'src/common/controller/data_load_controller.dart';
 
 late SharedPreferences prefs;
 void main() async {
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       ),
       initialBinding: BindingsBuilder(() {
         Get.put(SplashController());
+        Get.put(DataLoadController());
       }),
       getPages: [GetPage(name: '/', page: () => const App())],
     );
