@@ -1,4 +1,5 @@
 import 'package:carrot_market/firebase_options.dart';
+import 'package:carrot_market/src/common/controller/authentication_controller.dart';
 import 'package:carrot_market/src/splash/controller/splash_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
       initialBinding: BindingsBuilder(() {
         Get.put(SplashController());
         Get.put(DataLoadController());
+        Get.put(AuthenticationController());
       }),
       getPages: [GetPage(name: '/', page: () => const App())],
     );
