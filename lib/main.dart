@@ -39,7 +39,11 @@ class MyApp extends StatelessWidget {
         Get.put(DataLoadController());
         Get.put(AuthenticationController());
       }),
-      getPages: [GetPage(name: '/', page: () => const App())],
+      getPages: [
+        GetPage(name: '/', page: () => const App()),
+        GetPage(name: '/home', page: () => const HomePage()),
+        GetPage(name: '/login', page: () => const LoginPage()),
+      ],
     );
   }
 }
