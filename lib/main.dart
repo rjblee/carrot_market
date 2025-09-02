@@ -8,6 +8,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'src/app.dart';
 import 'src/common/controller/data_load_controller.dart';
+import 'src/home/page/home_page.dart';
+import 'src/user/login/page/login_page.dart';
 
 late SharedPreferences prefs;
 void main() async {
