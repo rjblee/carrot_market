@@ -53,12 +53,7 @@ class SplashPage extends GetView<SplashController> {
                     break;
                 }
               },
-              child: Obx(
-                () => Text(
-                  '${controller.loadStep.value.name}중 입니다.',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+              child: const _SplashView(),
             ),
           ),
         ),
@@ -67,58 +62,56 @@ class SplashPage extends GetView<SplashController> {
   }
 }
 
-class _SplashPage extends GetView<SplashController> {
+class _SplashView extends GetView<SplashController> {
   // GetView를 사용하면 위젯 내에서 controller에 바로 접근 가능
-  const _SplashPage({super.key});
+  const _SplashView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 200),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 99,
-                  height: 116,
-                  child: Image.asset('assets/images/logo_simbol.png'),
-                ),
-                const SizedBox(height: 40),
-                AppFont('당신 근처의 밤톨마켓', fontWeight: FontWeight.bold, size: 20),
+    return Column(
+      children: [
+        const SizedBox(height: 200),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 99,
+                height: 116,
+                child: Image.asset('assets/images/logo_simbol.png'),
+              ),
+              const SizedBox(height: 40),
+              AppFont('당신 근처의 밤톨마켓', fontWeight: FontWeight.bold, size: 20),
 
-                const SizedBox(height: 15),
-                AppFont(
-                  '중고 거래부터 동네 정보까지, \n지금 내 동네를 선택하고 시작해보세요!',
-                  align: TextAlign.center,
-                  size: 18,
-                  color: Colors.white.withValues(alpha: 0.6),
-                ),
-              ],
-            ),
+              const SizedBox(height: 15),
+              AppFont(
+                '중고 거래부터 동네 정보까지, \n지금 내 동네를 선택하고 시작해보세요!',
+                align: TextAlign.center,
+                size: 18,
+                color: Colors.white.withValues(alpha: 0.6),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 200,
-            child: Column(
-              children: [
-                Obx(
-                  () => Text(
-                    '${controller.loadStep.value.name}중 입니다.',
-                    style: TextStyle(color: Colors.white),
-                  ),
+        ),
+        SizedBox(
+          height: 200,
+          child: Column(
+            children: [
+              Obx(
+                () => Text(
+                  '${controller.loadStep.value.name}중 입니다.',
+                  style: TextStyle(color: Colors.white),
                 ),
-                const SizedBox(height: 20),
-                const CircularProgressIndicator(
-                  strokeWidth: 1,
-                  color: Colors.white,
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 20),
+              const CircularProgressIndicator(
+                strokeWidth: 1,
+                color: Colors.white,
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
