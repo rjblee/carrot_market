@@ -99,6 +99,24 @@ class _SplashPage extends GetView<SplashController> {
               ],
             ),
           ),
+          SizedBox(
+            height: 200,
+            child: Column(
+              children: [
+                Obx(
+                  () => Text(
+                    '${controller.loadStep.value.name}중 입니다.',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const CircularProgressIndicator(
+                  strokeWidth: 1,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
