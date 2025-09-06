@@ -12,6 +12,9 @@ class UserModel extends Equatable {
 
   const UserModel({this.uid, this.name, this.email});
 
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
+
   @override
   // List of properties used to determine if two objects are equal
   // If all properties in props match, then the objects are considered equal
