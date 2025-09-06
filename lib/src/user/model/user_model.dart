@@ -1,5 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'user_model.g.dart';
+
+@JsonSerializable() // Json serialization and deserialization are automatically connected
 class UserModel extends Equatable {
   // Equatable allows value equality check
   final String? uid;
