@@ -25,4 +25,8 @@ class AuthenticationRepository {
 
     await _firebaseAuth.signInWithCredential(credential);
   }
+
+  Future<void> logout() async {
+    await _firebaseAuth.signOut();
+  }
 }
