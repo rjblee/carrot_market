@@ -1,8 +1,9 @@
 import 'package:carrot_market/src/user/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class AuthenticationRepository {
+class AuthenticationRepository extends GetxService {
   final FirebaseAuth _firebaseAuth;
 
   AuthenticationRepository(this._firebaseAuth);
