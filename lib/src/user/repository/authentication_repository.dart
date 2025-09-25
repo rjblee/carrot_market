@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthenticationRepository extends GetxService {
+  // GetxService는 GetxController와 달리 한번 등록 되면 앱이 종료될 때까지 유지됨
   final FirebaseAuth _firebaseAuth;
 
   AuthenticationRepository(this._firebaseAuth);
