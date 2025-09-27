@@ -10,8 +10,9 @@ class AuthenticationController extends GetxController {
   Rx<UserModel> userModel = const UserModel().obs;
 
   void authCheck() async {
-    await Future.delayed(const Duration(milliseconds: 1000));
-    isLogined(true);
+    _authenticationRepository.user.listen((user) {
+      _userStateChangedEvent(user);
+    });
   }
 
   void logout() {
