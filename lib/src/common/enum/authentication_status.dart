@@ -1,7 +1,1 @@
-enum AuthenticationStatus
-{
-authentication,
-unAuthenticated,
-unknown,
-init,
-}
+enum AuthenticationStatus { authentication, unAuthenticated, unknown, init }
