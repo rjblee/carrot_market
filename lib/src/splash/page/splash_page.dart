@@ -1,6 +1,7 @@
 import 'package:carrot_market/src/common/components/getx_listener.dart';
 import 'package:carrot_market/src/common/controller/authentication_controller.dart';
 import 'package:carrot_market/src/common/controller/data_load_controller.dart';
+import 'package:carrot_market/src/common/enum/authentication_status.dart';
 import 'package:carrot_market/src/splash/controller/splash_controller.dart';
 import 'package:carrot_market/src/splash/enum/step_type.dart';
 import 'package:flutter/material.dart';
@@ -16,15 +17,22 @@ class SplashPage extends GetView<SplashController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: GetxListener<bool>(
-          listen: (bool isLogined) {
-            if (isLogined) {
-              Get.offNamed('/home');
-            } else {
-              Get.offNamed('/login');
+        child: GetxListener<AuthenticationStatus>(
+          listen: (AuthenticationStatus status) {
+            switch (status) {
+              case AuthenticationStatus.authentication:
+                Get.offNamed('/home');
+                break;
+              case AuthenticationStatus.unAuthenticated:
+                break;
+              case AuthenticationStatus.unknown:
+                Get.offNamed('/login');
+                break;
+              case AuthenticationStatus.init:
+                break;
             }
           },
-          stream: Get.find<AuthenticationController>().isLogined,
+          stream: Get.find<AuthenticationController>().status,
           child: GetxListener<bool>(
             listen: (bool value) {
               if (value) {
